@@ -1,0 +1,27 @@
+<mat-form-field class="chip-list-container" style="width: 50%">
+    <mat-chip-grid #chipGrid aria-label="Selected Items">
+      <mat-chip-row *ngFor="let item of selectedItems(); let i = index" (removed)="remove(item)">
+        {{ item.Label }}
+        <button matChipRemove [attr.aria-label]="'remove ' + item">
+          <mat-icon>cancel</mat-icon>
+        </button>
+      </mat-chip-row>
+    </mat-chip-grid>
+  
+    <input
+      name="searchInput"
+      placeholder="Search..."
+      #searchInput
+      [(ngModel)]="currentInput"
+      [matChipInputFor]="chipGrid"
+      [matAutocomplete]="auto"
+    />
+  
+    <mat-autocomplete #auto="matAutocomplete" (optionSelected)="selected($event)">
+      <mat-option *ngFor="let option of filteredOptions(); let i = index" [value]="option">
+        {{(option.Label) }}
+      </mat-option>
+    </mat-autocomplete>
+  </mat-form-field>
+
+  

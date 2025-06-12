@@ -1,0 +1,11 @@
+<h2 style="color: black;">Hi Am History</h2>
+<h3>Multiple Selection Mode</h3>
+
+<app-chip-list [options]="fruits" [singleSelection]="false" (selectedItemsChange)="onSelectedItemsChange($event)">
+</app-chip-list>
+
+<h3>Single Selection Mode</h3>
+
+<app-chip-list [options]="fruits" [singleSelection]="true" (selectedItemsChange)="onSelectedItemsChange($event)">
+</app-chip-list>
+<app-prime-chip></app-prime-chip>

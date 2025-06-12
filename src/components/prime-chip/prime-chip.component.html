@@ -1,0 +1,29 @@
+<!-- <p>prime-chip works!</p> -->
+<!-- <div class="card flex justify-center">
+    <p-button label="Check" />
+</div> -->
+
+<!-- <p-chip label="Action" />
+<form [formGroup]="formGroup" class="card flex justify-center">
+    <p-multiselect [options]="cities" formControlName="selectedCities" optionLabel="name" placeholder="Select Cities" [maxSelectedLabels]="3" styleClass="w-full md:w-80" />
+</form> -->
+
+<div class="card flex justify-center">
+    <p-multiselect 
+    [options]="cities" 
+    [(ngModel)]="selectedCities" 
+    placeholder="Select Cities"
+    optionLabel="name" 
+    display="chip" 
+    styleClass="w-full md:w-80" 
+    appendTo="body"
+    chipIcon="pi pi-times"
+    dropdownIcon="pi pi-caret-down"
+    showClear="true"
+    
+    >
+     <ng-template #dropdownicon>
+        <span class="material-icons">arrow_drop_down</span>
+    </ng-template>
+    </p-multiselect>
+</div>
