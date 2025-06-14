@@ -1,1 +1,29 @@
-<p>employee-details works!</p>
+<div class="table">
+
+  <div class="add-btn" (click)="addEmployee()">
+    <button>Add Employee</button>
+  </div>
+
+  <table class="employee-table" *ngIf="employees.length > 0">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Location</th>
+        <th>Department</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let emp of employees; let i = index">
+        <td>{{ emp.name }}</td>
+        <td>{{ emp.location }}</td>
+        <td>{{ emp.department }}</td>
+        <td class="actions">
+          <button class="update" (click)="update(emp)">Update</button>
+          <button class="delete" (click)="delete(emp.id)">Delete</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+</div>
