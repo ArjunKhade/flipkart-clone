@@ -15,7 +15,7 @@ export class EmployeeService {
   private employeeList = new BehaviorSubject<any[]>([]);
   employees$ = this.employeeList.asObservable();
 
-  addEmployee(emp: any): Observable<any> {
+  addEmployee(emp: Employee): Observable<any> {
     return this.http.post(BASE_URL, emp)
   }
 
@@ -27,7 +27,7 @@ export class EmployeeService {
     return this.http.delete(`${BASE_URL}/${id}`, { responseType: 'text' });
   }
 
-  updateEmployee(emp: any, empId: number): Observable<any> {
+  updateEmployee(emp: Employee, empId: number): Observable<any> {
     emp.id = empId;
     return this.http.put(BASE_URL, emp)
   }

@@ -1,0 +1,24 @@
+<form [formGroup]="mainForm" (ngSubmit)="onSubmit()" class="form-container">
+ 
+  <!-- Static fields --> <h2>Static fields</h2>
+  <mat-form-field appearance="outline" style="width: 32.2%;" floatLabel="always">
+    <mat-label>Full Name</mat-label>
+    <input matInput formControlName="fullName" />
+    <mat-error *ngIf="mainForm.get('fullName')?.hasError('required')">Name is required</mat-error>
+  </mat-form-field>
+
+
+  <mat-form-field appearance="outline" style="margin-left: 20px;" style="width: 32.2%;" floatLabel="always">
+    <mat-label>Email</mat-label>
+    <input matInput formControlName="email" />
+    <mat-error *ngIf="mainForm.get('email')?.hasError('required')">Email is required</mat-error>
+    <mat-error *ngIf="mainForm.get('email')?.hasError('email')">Invalid email</mat-error>
+  </mat-form-field>
+
+    <!-- Dynamic Fields -->  <h2>Dynamic Fields</h2>
+  <app-dynamic-form-child [parentForm]="mainForm" [fields]="fields"></app-dynamic-form-child>
+
+  <button mat-raised-button color="primary" type="submit">
+    Submit
+  </button>
+</form>

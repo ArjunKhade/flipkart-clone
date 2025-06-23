@@ -23,10 +23,10 @@ export class PrimeChipComponent {
 
   ngOnInit() {
       this.cities = [
-          { name: 'New York', code: 'NY' },
-          { name: 'Rome', code: 'RM' },
-          { name: 'London', code: 'LDN' },
-          { name: 'Istanbul', code: 'IST' },
+          { name: 'New York123', code: 'NY' },
+          { name: 'Rome6', code: 'RM' },
+          { name: 'London89', code: 'LDN' },
+          { name: 'Istanbul45', code: 'IST' },
           { name: 'Paris', code: 'PRS' }
       ];
 

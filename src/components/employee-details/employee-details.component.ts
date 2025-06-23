@@ -5,8 +5,9 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 import { MatDividerModule } from '@angular/material/divider';
 import { Employee } from '../add-employee/model';
-import { BehaviorSubject } from 'rxjs';
+import { BehaviorSubject, Observable } from 'rxjs';
 import { Router } from '@angular/router';
+import { AppService } from '../../app/app.service';
 
 
 @Component({
@@ -25,9 +26,14 @@ export class EmployeeDetailsComponent implements OnInit {
   selectedEmployeeId: number | null = null; // for tracking if editing
 
 
+ isHandset!: Observable<boolean>;
+ isTablet!: Observable<boolean>;
+ isWeb!: Observable<boolean>;
+
   constructor(
     private empService: EmployeeService,
-    private router: Router
+    private router: Router,
+    private appService: AppService
   ) { }
 
   ngOnInit(): void {
@@ -35,6 +41,10 @@ export class EmployeeDetailsComponent implements OnInit {
       this.employees = data;
     });
     this.getEmployees();
+
+    this.isHandset = this.appService.isHandset$;
+    this.isTablet = this.appService.isTablet$;
+    this.isWeb = this.appService.isWeb$;
   }
 
   getEmployees() {

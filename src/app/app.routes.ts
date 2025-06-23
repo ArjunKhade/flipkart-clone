@@ -33,17 +33,24 @@ export const routes: Routes = [
             (m) => m.LikesComponent
           )
        },
-
        { path: 'calendar', 
          loadComponent: () =>
           import('../components/calendar/calendar.component').then(
             (m) => m.CalendarComponent
           )
        },
+        
 
       { path: '', redirectTo: 'main', pathMatch: 'full' }
     ]
   },
+
+  { path: 'dynamic', 
+         loadComponent: () =>
+          import('../components/dynamic-form/dynamic-form.component').then(
+            (m) => m.DynamicFormComponent
+          )
+       },
   { path: '', redirectTo: '/main', pathMatch: 'full' },
   { path: '**', redirectTo: '/main' }
 ];

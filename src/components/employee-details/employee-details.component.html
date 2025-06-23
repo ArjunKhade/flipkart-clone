@@ -27,3 +27,8 @@
   </table>
 
 </div>
+
+
+<ng-container *ngIf="isHandset | async">Mobile View</ng-container>
+<ng-container *ngIf="isTablet | async">Tablet View</ng-container>
+<ng-container *ngIf="isWeb | async">Web View</ng-container>
